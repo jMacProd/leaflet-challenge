@@ -68,25 +68,25 @@ d3.json(queryUrl, function(data) {
         
         //Add cicles to map
         // Add circles to map
-        var quakecoords = [quakedata[i].geometry.coordinates[0],quakedata[i].geometry.coordinates[1]];
+        var quakecoords = [quakedata[i].geometry.coordinates[1],quakedata[i].geometry.coordinates[0]];
         // console.log(`${i}: ${quakecoords}`)
 
-        L.circle(-117.5306667, 35.7513333, {
-            fillOpacity: 0.75,
-            color: "green",
-            fillColor: "green",
-            // Adjust radius
-            radius: 1500
-        }).addTo(myMap);
-
-        // L.circle(quakecoords, {
+        // L.circle([35.7513333, -117.5306667], {
         //     fillOpacity: 0.75,
-        //     color: "white",
-        //     fillColor: "black",
+        //     color: "green",
+        //     fillColor: "green",
         //     // Adjust radius
-        //     radius: quakedata[i].properties.mag * 1500
-        // }).bindPopup("<h3>" + quakedata[i].properties.place +
-        //       "</h3><hr><p>" + new Date(quakedata[i].properties.time) + "</p>").addTo(myMap);
+        //     radius: 10000
+        // }).addTo(myMap);
+
+        L.circle(quakecoords, {
+            fillOpacity: 0.75,
+            color: "white",
+            fillColor: `"${color}"`,
+            // Adjust radius
+            radius: quakedata[i].properties.mag * 20000
+        }).bindPopup("<h3>" + quakedata[i].properties.place +
+              "</h3><hr><p>" + new Date(quakedata[i].properties.time) + "</p>").addTo(myMap);
     }
 
 
