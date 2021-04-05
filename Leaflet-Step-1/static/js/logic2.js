@@ -81,8 +81,9 @@ d3.json(queryUrl, function(data) {
 
         L.circle(quakecoords, {
             fillOpacity: 0.75,
-            color: "white",
-            fillColor: `"${color}"`,
+            color: "grey",
+            weight: ".75",
+            fillColor: color,
             // Adjust radius
             radius: quakedata[i].properties.mag * 20000
         }).bindPopup("<h3>" + quakedata[i].properties.place +
