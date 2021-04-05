@@ -87,47 +87,46 @@ d3.json(queryUrl, function(data) {
             // Adjust radius
             radius: quakedata[i].properties.mag * 20000
         }).bindPopup("<h3>" + quakedata[i].properties.place +
-              "</h3><hr><p>" + new Date(quakedata[i].properties.time) + "</p>").addTo(myMap);
+              "</br>Magnitude: " + quakedata[i].properties.mag + "<hr> </h3><p>" + new Date(quakedata[i].properties.time) + "</p>").addTo(myMap);
     }
+    //https://www.igismap.com/legend-in-leafletjs-map-with-topojson/
+    var legend = L.control({
+        position: "bottomright"
+      });
+    
+      legend.onAdd = function() {
+        var div = L.DomUtil.create("div", "info legend");
+// #b7f34d
+// #e1f34d
+// #f3db4d
+// #f3ba4d
+// #f0a76b
+// #f06b6b    
+        var grades = [0, 1, 2, 3, 4, 5];
+        var colors = ["#b7f34d", "#e1f34d", "#f3db4d", "#f3ba4d","#f0a76b", "#f06b6b"];
+    
+    
+      // loop thry the intervals of colors to put it in the label
+        for (var i = 0; i<grades.length; i++) {
+          div.innerHTML +=
+          "<i style='background: " + colors[i] + "'></i> " +
+          grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+        }
+        return div;
+    
+      };
+    
+      legend.addTo(myMap)
+});
+
+
+   
+    
 
 
 
-    // Once we get a response, send the data.features object to the createFeatures function
-    // createFeatures(data.features);
-  });
-
-// function createFeatures(earthquakeData) {
-
-//     // Define a function we want to run once for each feature in the features array
-//     // Give each feature a popup describing the place and time of the earthquake
-//     function onEachFeature(feature, layer) {
-//         layer.bindPopup("<h3>" + feature.properties.place +
-//       "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
-//     }
-//     // Create a GeoJSON layer containing the features array on the earthquakeData object
-//   // Run the onEachFeature function once for each piece of data in the array
-//   var earthquakes = L.geoJSON(earthquakeData, {
-//     onEachFeature: onEachFeature
-//   });
-
-//   // Sending our earthquakes layer to the createMap function
-//   createMap(earthquakes);
-// }
-
-// function createMap(earthquakes) {
-//     // Define streetmap and darkmap layers
 
 
-//   // Define a baseMaps object to hold our base layers
-//   var baseMaps = {
-//     "Street Map": streetmap,
-//     //"Dark Map": darkmap
-//   };
-
-//   // Create overlay object to hold our overlay layer
-//   var overlayMaps = {
-//     Earthquakes: earthquakes
-//   };
 
 
-// }
+
