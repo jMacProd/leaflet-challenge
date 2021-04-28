@@ -31,13 +31,13 @@ Using earthquake data from the U.S. Geological Survey (USGS) Eathquake Hazard Pr
     * **Sub-directory: static**
         * **Sub-directory: css**
             * style.css
-                * **Sub-directory: js**
-                    * logic2a.js
-                    (other files are workin files)
+        * **Sub-directory: js**
+            * logic2a.js
+            (other files are working files)
                     
 ## Data Source
-**Earthquake data:** https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
-**Plates data:** https://github.com/fraxen/tectonicplates
+* **Earthquake data:** https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+* **Plates data:** https://github.com/fraxen/tectonicplates
 
 ## To Run:
 * Config file required for MapBox API key
