@@ -17,6 +17,7 @@ accessToken: API_KEY
 
 
 
+//DONE
 // Store our API endpoint inside queryUrl
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
@@ -96,12 +97,7 @@ d3.json(queryUrl, function(data) {
     
       legend.onAdd = function() {
         var div = L.DomUtil.create("div", "info legend");
-// #b7f34d
-// #e1f34d
-// #f3db4d
-// #f3ba4d
-// #f0a76b
-// #f06b6b    
+   
         var grades = [0, 1, 2, 3, 4, 5];
         var colors = ["#b7f34d", "#e1f34d", "#f3db4d", "#f3ba4d","#f0a76b", "#f06b6b"];
     
